@@ -1,8 +1,7 @@
 const vscode = require('vscode');
 
 
-function get_selected_text() {
-	const editor = vscode.window.activeTextEditor;
+function get_selected_text(editor) {
 	const selection = editor.selection;
 
 	if (selection && !selection.isEmpty) {
@@ -23,17 +22,28 @@ function paste_at_the_end(editor, content) {
     });
 }
 
+async function get_user_input(prompt) {
+    const userInput = await vscode.window.showInputBox({ prompt: prompt });
+
+	return userInput;
+}
+
+
 function extract() {
 	const editor = vscode.window.activeTextEditor;
     if (!editor) {
         return; // No active text editor
     }
+
+	const func_name = get_user_input("Enter new function name");
+
+
 	paste_at_the_end("Test text at the end of the file")
 
-	vscode.window.showInformationMessage(get_selected_text());
+	vscode.window.showInformationMessage(get_selected_text(editor));
 
 	editor.edit((selectedText) => {
-    selectedText.replace(editor.selection, "Aboba");
+    	selectedText.replace(editor.selection, "Aboba");
 	})
 }
 
@@ -49,3 +59,4 @@ module.exports = {
 	activate,
 	deactivate
 }
+
