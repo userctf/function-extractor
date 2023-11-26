@@ -2,6 +2,9 @@
 
 This extensions allows you to easy separate block of your code in to different functions
 
+## Install
+To install this plugin you need to copy folder of this add-on to your add-ons folder. In linux it placed in `~/.vscode/extensions/`
+
 ## Example
 ```js
 let a = 10;
