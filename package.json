@@ -15,7 +15,15 @@
     "commands": [{
       "command": "function-extractor.extract",
       "title": "extract function"
-    }]
+    }],
+    "keybindings": [
+      {
+        "command": "function-extractor.extract",
+        "key": "ctrl+alt+e",
+        "mac": "cmd+alt+e",
+        "when": "editorFocus"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
